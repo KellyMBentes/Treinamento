@@ -1,21 +1,15 @@
 package com.example.recycler.myrecyclerview.view
 
-import android.content.Intent
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
 
 import com.example.recycler.myrecyclerview.R
+import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity() {
 
-    private var dateAndTime: TextView? = null
-    private var message: TextView? = null
-    private var coloredBackground: View? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+    public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
@@ -24,14 +18,9 @@ class DetailActivity : AppCompatActivity() {
         val messageExtra = i.getStringExtra(EXTRA_MESSAGE)
         val colorResourceExtra = i.getIntExtra(EXTRA_COLOUR, 0)
 
-        dateAndTime = findViewById<View>(R.id.lbl_date_time_header) as TextView
-        dateAndTime!!.text = dateAndTimeExtra
-
-        message = findViewById<View>(R.id.lbl_message_body) as TextView
-        message!!.text = messageExtra
-
-        coloredBackground = findViewById(R.id.cont_colored_background)
-        coloredBackground!!.setBackgroundColor(
+        lbl_date_time_header.text = dateAndTimeExtra
+        lbl_message_body.text = messageExtra
+        cont_colored_background.setBackgroundColor(
                 ContextCompat.getColor(this, colorResourceExtra)
         )
     }

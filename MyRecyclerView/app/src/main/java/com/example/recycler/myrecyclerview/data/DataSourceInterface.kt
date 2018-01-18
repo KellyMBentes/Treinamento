@@ -6,6 +6,5 @@ package com.example.recycler.myrecyclerview.data
 
 interface DataSourceInterface {
 
-    val listOfData: List<ListItem>
-
+    fun getListOfData() : List<ListItem>
 }

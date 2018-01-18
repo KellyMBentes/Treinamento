@@ -31,7 +31,7 @@ class ControllerUnitTest {
     @Mock
     internal var view: ViewInterface? = null
 
-    internal var controller: Controller
+    internal var controller: Controller? = null
 
     @Before
     fun setUpTest() {
@@ -46,14 +46,14 @@ class ControllerUnitTest {
 
         Mockito.`when`(dataSource!!.listOfData).thenReturn(listOfData)
 
-        controller.getListFromDataSource()
+        controller?.getListFromDataSource()
 
         Mockito.verify<ViewInterface>(view).setUpAdapterAndView(listOfData)
     }
 
     @Test
     fun onListItemClicked() {
-        controller.onListItemClick(testItem)
+        controller?.onListItemClick(testItem)
 
         Mockito.verify<ViewInterface>(view).startDetailActivity(
                 testItem.dateAndTime!!,

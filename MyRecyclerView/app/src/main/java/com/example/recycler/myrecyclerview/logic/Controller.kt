@@ -10,15 +10,10 @@ import com.example.recycler.myrecyclerview.view.ViewInterface
 
 class Controller(private val view: ViewInterface, private val dataSource: DataSourceInterface) {
 
-    init {
-
-        getListFromDataSource()
-    }
-
     fun getListFromDataSource() {
 
         view.setUpAdapterAndView(
-                dataSource.listOfData
+                dataSource.getListOfData()
         )
 
     }
