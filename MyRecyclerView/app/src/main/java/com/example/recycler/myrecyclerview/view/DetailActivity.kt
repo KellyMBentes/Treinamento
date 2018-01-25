@@ -13,16 +13,17 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        val i = intent
-        val dateAndTimeExtra = i.getStringExtra(EXTRA_DATE_AND_TIME)
-        val messageExtra = i.getStringExtra(EXTRA_MESSAGE)
-        val colorResourceExtra = i.getIntExtra(EXTRA_COLOUR, 0)
+        with(intent) {
+            val dateAndTimeExtra = getStringExtra(EXTRA_DATE_AND_TIME)
+            val messageExtra = getStringExtra(EXTRA_MESSAGE)
+            val colorResourceExtra = getIntExtra(EXTRA_COLOUR, 0)
 
-        lbl_date_time_header.text = dateAndTimeExtra
-        lbl_message_body.text = messageExtra
-        cont_colored_background.setBackgroundColor(
-                ContextCompat.getColor(this, colorResourceExtra)
-        )
+            lbl_date_time_header.text = dateAndTimeExtra
+            lbl_message_body.text = messageExtra
+            cont_colored_background.setBackgroundColor(
+                    ContextCompat.getColor(baseContext, colorResourceExtra)
+            )
+        }
     }
 
     companion object {
