@@ -5,7 +5,7 @@ package com.example.recycler.myrecyclerview.data
  */
 
 data class ListItem (
-    var dateAndTime: String? = null,
+    val dateAndTime: String,
     var message: String? = null,
     var colorResource: Int = -1
 )
