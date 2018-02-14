@@ -4,4 +4,7 @@
     <string name="email_hint">Type your email</string>
     <string name="cpf_hint">Type your CPF</string>
     <string name="confirm_button_label">Confirm</string>
+    
+    <!--Error Messages-->
+    <string name="error_message_name_without_last_name">Type your name with your last name</string>
 </resources>

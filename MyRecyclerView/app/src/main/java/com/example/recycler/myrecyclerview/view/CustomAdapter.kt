@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.item_data.view.*
  * Created by kellybentes on 18/01/18.
  */
 
-class CustomAdapter (private var listOfData : List<ListItem>, private val controller: Controller?) : RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
+class CustomAdapter (private var listOfData : List<ListItem>, private val controller: Controller?)
+    : RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
 
     override fun getItemCount(): Int {
         return listOfData.size
@@ -34,7 +35,11 @@ class CustomAdapter (private var listOfData : List<ListItem>, private val contro
         holder.dateAndTime.text = currentItem.dateAndTime
     }
 
-    inner class CustomViewHolder internal constructor (itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+
+
+    inner class CustomViewHolder internal constructor (
+            itemView: View) :
+            RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         val coloredCircle = itemView.imv_list_item_circle
         val dateAndTime = itemView.lbl_date_and_time
