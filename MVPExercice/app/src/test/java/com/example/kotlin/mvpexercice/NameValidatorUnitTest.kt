@@ -30,7 +30,7 @@ class NameValidatorUnitTest {
 
     @Test
     fun onNameToShort (){
-        val test = "Kel"
+        val test = "K T"
         val expected = false
         val output = nameValidator!!.validate(test)
         assertEquals(expected, output)
@@ -38,7 +38,10 @@ class NameValidatorUnitTest {
 
     @Test
     fun onNameToLong (){
-        val test = buildString { for (i in 1..70) append(i) }
+        val test = buildString {
+            append("abc ")
+            for (i in 1..57) append("a")
+        }
         val expected = false
         val output = nameValidator!!.validate(test)
         assertEquals(expected, output)
