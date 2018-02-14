@@ -8,7 +8,9 @@ class NameValidator (){
 
     fun validate (name : String) : Boolean {
 
-        if (!name.contains(" ")) return false
+        val nameAndLastNamePattern = Regex ("\\w+ \\w+")
+
+        if (!name.matches(nameAndLastNamePattern)) return false
         if (name.length < 4) return false
         if (name.length > 60) return false
 

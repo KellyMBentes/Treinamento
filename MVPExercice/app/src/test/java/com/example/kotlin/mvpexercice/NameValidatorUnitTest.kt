@@ -22,7 +22,15 @@ class NameValidatorUnitTest {
 
     @Test
     fun onNameWitoutLastName (){
-        val test = "Kelly"
+        val test = "Kelly "
+        val expected = false
+        val output = nameValidator!!.validate(test)
+        assertEquals(expected, output)
+    }
+
+    @Test
+    fun onLastNameWitoutName (){
+        val test = " Tavares"
         val expected = false
         val output = nameValidator!!.validate(test)
         assertEquals(expected, output)
