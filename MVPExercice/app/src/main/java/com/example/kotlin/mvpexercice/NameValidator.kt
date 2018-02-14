@@ -10,6 +10,7 @@ class NameValidator (){
 
         val nameAndLastNamePattern = Regex ("\\w+ \\w+")
 
+        if (name.isEmpty()) return false
         if (!name.matches(nameAndLastNamePattern)) return false
         if (name.length < 4) return false
         if (name.length > 60) return false

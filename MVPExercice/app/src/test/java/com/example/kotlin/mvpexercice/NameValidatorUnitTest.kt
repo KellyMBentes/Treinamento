@@ -4,7 +4,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 /**
  * Created by kellybentes on 14/02/18.
@@ -12,54 +11,57 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class NameValidatorUnitTest {
 
-    var nameValidator : NameValidator? = null
+    lateinit var nameValidator : NameValidator
+    val REJECT = false
+    val ACCEPT = true
 
     @Before
-    fun setUpTest(){
-        MockitoAnnotations.initMocks(this)
+    fun `before each test` (){
         nameValidator = NameValidator()
     }
 
     @Test
-    fun onNameWitoutLastName (){
-        val test = "Kelly "
-        val expected = false
-        val output = nameValidator!!.validate(test)
-        assertEquals(expected, output)
+    fun `should reject a empty string` (){
+        val input = ""
+        val output = nameValidator.validate(input)
+        assertEquals(REJECT, output)
     }
 
     @Test
-    fun onLastNameWitoutName (){
-        val test = " Tavares"
-        val expected = false
-        val output = nameValidator!!.validate(test)
-        assertEquals(expected, output)
+    fun `should reject name without last name` (){
+        val input = "Kelly "
+        val output = nameValidator.validate(input)
+        assertEquals(REJECT, output)
     }
 
     @Test
-    fun onNameToShort (){
-        val test = "K T"
-        val expected = false
-        val output = nameValidator!!.validate(test)
-        assertEquals(expected, output)
+    fun `should reject last name without name` (){
+        val input = " Tavares"
+        val output = nameValidator.validate(input)
+        assertEquals(REJECT, output)
     }
 
     @Test
-    fun onNameToLong (){
-        val test = buildString {
+    fun `should reject to short names` (){
+        val input = "K T"
+        val output = nameValidator.validate(input)
+        assertEquals(REJECT, output)
+    }
+
+    @Test
+    fun `should reject to long names` (){
+        val input = buildString {
             append("abc ")
             for (i in 1..57) append("a")
         }
-        val expected = false
-        val output = nameValidator!!.validate(test)
-        assertEquals(expected, output)
+        val output = nameValidator.validate(input)
+        assertEquals(REJECT, output)
     }
 
     @Test
-    fun onValidName (){
-        val test = "Kelly Tavares"
-        val expected = true
-        val output = nameValidator!!.validate(test)
-        assertEquals(expected, output)
+    fun `should accept a valid name` (){
+        val input = "Kelly Tavares"
+        val output = nameValidator.validate(input)
+        assertEquals(ACCEPT, output)
     }
 }
