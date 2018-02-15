@@ -10,25 +10,28 @@
 
     <EditText
         style="@style/Text.Secondary"
-        android:id="@+id/edt_name"
+        android:id="@+id/edtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
         android:hint="@string/name_hint"/>
     <EditText
         style="@style/Text.Secondary"
-        android:id="@+id/edt_email"
+        android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
         android:hint="@string/email_hint"/>
     <EditText
         style="@style/Text.Secondary"
-        android:id="@+id/edt_cpf"
+        android:id="@+id/edtCpf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:hint="@string/cpf_hint"/>
     <Button
         style="@style/Text.Primary"
-        android:id="@+id/btn_confirm"
+        android:id="@+id/btnConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/confirm_button_label" />

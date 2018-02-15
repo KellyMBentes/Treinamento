@@ -13,11 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val edtName = edt_name
-        val edtEmail = edt_email
-        val edtCpf = edt_cpf
-        val btnConfirm = btn_confirm
-
         btnConfirm.setOnClickListener({
             val test = Person(
                     edtName.text.toString(),
