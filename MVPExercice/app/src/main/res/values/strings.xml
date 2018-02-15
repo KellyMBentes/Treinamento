@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">MVPExercice</string>
-    <string name="name_hint">Type your name</string>
-    <string name="email_hint">Type your email</string>
-    <string name="cpf_hint">Type your CPF</string>
-    <string name="confirm_button_label">Confirm</string>
-
-</resources>
