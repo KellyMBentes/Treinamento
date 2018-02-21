@@ -10,7 +10,6 @@ import org.mockito.junit.MockitoJUnitRunner
  * Created by kellybentes on 20/02/18.
  */
 
-@RunWith(MockitoJUnitRunner::class)
 class EmailValidatorUnitClass {
 
     lateinit var emailValidator: EmailValidator

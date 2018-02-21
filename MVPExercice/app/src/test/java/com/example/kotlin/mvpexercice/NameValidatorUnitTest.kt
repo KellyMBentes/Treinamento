@@ -8,7 +8,6 @@ import org.mockito.junit.MockitoJUnitRunner
 /**
  * Created by kellybentes on 14/02/18.
  */
-@RunWith(MockitoJUnitRunner::class)
 class NameValidatorUnitTest {
 
     lateinit var nameValidator : NameValidator
