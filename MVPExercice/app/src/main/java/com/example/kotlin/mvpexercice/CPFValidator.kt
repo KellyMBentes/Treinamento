@@ -6,84 +6,51 @@ package com.example.kotlin.mvpexercice
 
 class CPFValidator (){
 
-    val cpfBlacklist = listOf("000.000.000-00")
+    private val cpfBlacklist = listOf("00000000000")
 
     fun validate (cpf : String) : Boolean {
 
         if (cpf.isEmpty()) return false
 
-        val cpfClean = cpf.replace(".", "").replace("-", "")
+        if (cpf.length != 11) return false
 
-        lateinit var cpfDigits : IntArray
+        if (!validateDigit(cpf, 10)) return false
 
-        if (cpfClean.length != 11) return false
-
-        try {
-            cpfClean.toLong()
-            cpfDigits = convertCPFStringToIntArray(cpfClean)
-        }catch (e : Exception){
-            return false
-        }
-
-        if (!validateTenthDigit(cpfDigits)) return false
-
-        if (!validateEleventhDigit(cpfDigits)) return false
+        if (!validateDigit(cpf, 11)) return false
 
         if (cpfBlacklist.contains(cpf)) return false
 
         return true
     }
 
-    private fun convertCPFStringToIntArray (cpfClean : String) : IntArray{
+    private fun convertCPFStringToIntArray (cpf : String) : IntArray{
         val cpfIntArray = IntArray(11)
 
         for (i in 1..11){
-            cpfIntArray[i-1] = cpfClean.substring(i-1, i).toInt()
+            cpfIntArray[i-1] = cpf.substring(i-1, i).toInt()
         }
 
         return cpfIntArray
     }
 
-    private fun validateTenthDigit (cpfDigits: IntArray) : Boolean {
-        val sumProductNineFirstDigits = IntArray(9)
+    private fun validateDigit (cpf: String, digitNumber: Int) : Boolean {
+        val cpfDigits = convertCPFStringToIntArray(cpf)
+        val sumProductDigits = IntArray(digitNumber-1)
 
-        var weight = 10
+        var weight = digitNumber
 
-        for (i in 0..8){
-            sumProductNineFirstDigits[i] = cpfDigits[i] * weight
+        for (i in 0..(sumProductDigits.size - 1)){
+            sumProductDigits[i] = cpfDigits[i] * weight
             weight--
         }
 
-        var dvForTenthDigit = sumProductNineFirstDigits.sum() % 11
-        dvForTenthDigit = 11 - dvForTenthDigit
+        var dvForDigit = sumProductDigits.sum() % 11
+        dvForDigit = 11 - dvForDigit
 
-        if(dvForTenthDigit > 9)
-            dvForTenthDigit = 0
+        if(dvForDigit > 9)
+            dvForDigit = 0
 
-        if (dvForTenthDigit != cpfDigits[9])
-            return false
-
-        return true
-    }
-
-    private fun validateEleventhDigit (cpfDigits: IntArray) : Boolean {
-
-        val sumProductTenFirstDigits = IntArray(10)
-
-        var weight = 11
-
-        for (i in 0..9){
-            sumProductTenFirstDigits[i] = cpfDigits[i] * weight
-            weight--
-        }
-
-        var dvForeleventhDigit = sumProductTenFirstDigits.sum() % 11
-        dvForeleventhDigit = 11 - dvForeleventhDigit
-
-        if(dvForeleventhDigit > 9)
-            dvForeleventhDigit = 0
-
-        if (dvForeleventhDigit != cpfDigits[10])
+        if (dvForDigit != cpfDigits[digitNumber-1])
             return false
 
         return true

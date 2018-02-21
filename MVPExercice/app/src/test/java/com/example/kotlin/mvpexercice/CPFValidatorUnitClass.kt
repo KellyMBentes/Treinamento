@@ -30,43 +30,37 @@ class CPFValidatorUnitTest {
 
     @Test
     fun `should reject a cpf bigger than 11` (){
-        val input = "192.164.234-329"
+        val input = "192164234329"
         Assertions.assertThat(cpfValidator.validate(input)).isEqualTo(REJECT)
     }
 
     @Test
     fun `should reject a cpf smaller than 11` (){
-        val input = "192.164.234-3"
-        Assertions.assertThat(cpfValidator.validate(input)).isEqualTo(REJECT)
-    }
-
-    @Test
-    fun `should reject a cpf that is not a number` (){
-        val input = "abc.def.ghi-jk"
+        val input = "1921642343"
         Assertions.assertThat(cpfValidator.validate(input)).isEqualTo(REJECT)
     }
 
     @Test
     fun `should reject a cpf whith a invalid tenth digit` (){
-        val input = "935.956.032-59"
+        val input = "93595603259"
         Assertions.assertThat(cpfValidator.validate(input)).isEqualTo(REJECT)
     }
 
     @Test
     fun `should reject a cpf whith a invalid eleventh digit` (){
-        val input = "935.956.032-40"
+        val input = "93595603240"
         Assertions.assertThat(cpfValidator.validate(input)).isEqualTo(REJECT)
     }
 
     @Test
     fun `should reject a cpf in the blacklist` (){
-        val input = "000.000.000-00"
+        val input = "00000000000"
         Assertions.assertThat(cpfValidator.validate(input)).isEqualTo(REJECT)
     }
 
     @Test
     fun `should accept a valid cpf` (){
-        val input = "935.956.032-49"
+        val input = "93595603249"
         Assertions.assertThat(cpfValidator.validate(input)).isEqualTo(ACCEPT)
     }
 }
