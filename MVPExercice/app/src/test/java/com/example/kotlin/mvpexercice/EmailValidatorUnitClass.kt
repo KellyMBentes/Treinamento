@@ -3,8 +3,6 @@ package com.example.kotlin.mvpexercice
 import org.assertj.core.api.Assertions
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
 
 /**
  * Created by kellybentes on 20/02/18.
