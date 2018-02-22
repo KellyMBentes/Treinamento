@@ -38,5 +38,6 @@ class MainActivity : AppCompatActivity(), View {
 
     override fun onReadyToValidate() {
         btnConfirm.isClickable = true
+        btnConfirm.setTextColor(resources.getColor(android.R.color.black))
     }
 }

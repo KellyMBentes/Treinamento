@@ -12,14 +12,14 @@ class Presenter (val view: View, val nameValidator: NameValidator,
     fun userCPFChanged(cpf : String) {
         if (!cpfValidator.validate(cpf)) {
             view.onCPFInvalid()
+        } else {
+            view.onReadyToValidate()
         }
     }
 
     fun userEmailChanged(email : String) {
         if (!emailValidator.validate(email)) {
             view.onEmailInvalid()
-        } else {
-            view.onReadyToValidate()
         }
     }
 
