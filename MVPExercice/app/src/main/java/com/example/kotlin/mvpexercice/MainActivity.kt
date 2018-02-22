@@ -4,24 +4,24 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), View {
+class MainActivity : AppCompatActivity(), SubscriptionFormView {
 
-    private lateinit var presenter : Presenter
+    private lateinit var subscriptionFormPresenter: SubscriptionFormPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter = Presenter(this, NameValidator(), CPFValidator(), EmailValidator())
+        subscriptionFormPresenter = SubscriptionFormPresenter(this, NameValidator(), CPFValidator(), EmailValidator())
 
         edtName.addTextChangedListener(TextWatcherFactory()
-                .create{presenter.userNameChanged(edtName.text.toString())})
+                .create{ subscriptionFormPresenter.userNameChanged(edtName.text.toString())})
         edtCpf.addTextChangedListener(TextWatcherFactory()
-                .create{presenter.userCPFChanged(edtCpf.text.toString())})
+                .create{ subscriptionFormPresenter.userCPFChanged(edtCpf.text.toString())})
         edtEmail.addTextChangedListener(TextWatcherFactory()
-                .create{presenter.userEmailChanged(edtEmail.text.toString())})
+                .create{ subscriptionFormPresenter.userEmailChanged(edtEmail.text.toString())})
 
-        btnConfirm.setOnClickListener{presenter.performValidation()}
+        btnConfirm.setOnClickListener{ subscriptionFormPresenter.performValidation()}
     }
 
     override fun onNameInvalid() {

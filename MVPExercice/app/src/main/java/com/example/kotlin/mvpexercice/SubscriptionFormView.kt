@@ -1,6 +1,6 @@
 package com.example.kotlin.mvpexercice
 
-interface View {
+interface SubscriptionFormView {
 
     fun onNameInvalid()
     fun onCPFInvalid ()
