@@ -51,6 +51,6 @@ class CPFValidator (){
         if(dvForDigit > 9)
             dvForDigit = 0
 
-        return (dvForDigit != cpfDigits[digitNumber-1])
+        return (dvForDigit == cpfDigits[digitNumber-1])
     }
 }
