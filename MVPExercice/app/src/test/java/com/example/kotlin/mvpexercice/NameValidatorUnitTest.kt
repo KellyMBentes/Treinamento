@@ -3,12 +3,9 @@ package com.example.kotlin.mvpexercice
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
 /**
  * Created by kellybentes on 14/02/18.
  */
-@RunWith(MockitoJUnitRunner::class)
 class NameValidatorUnitTest {
 
     lateinit var nameValidator : NameValidator
