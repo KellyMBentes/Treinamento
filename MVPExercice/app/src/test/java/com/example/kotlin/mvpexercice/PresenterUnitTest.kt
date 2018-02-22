@@ -21,25 +21,22 @@ class PresenterUnitTest {
 
     @Test
     fun `should call name invalid when the changed name is invalid` (){
-        Mockito.`when`(view.getUserName()).thenReturn("")
-        presenter.userNameChanged()
+        presenter.userNameChanged("")
 
-        Mockito.verify(view).onNameInvalid(R.string.error_name_invalid)
+        Mockito.verify(view).onNameInvalid()
     }
 
     @Test
     fun `should call cpf invalid when the changed cpf is invalid` (){
-        Mockito.`when`(view.geUserCPF()).thenReturn("")
-        presenter.userCPFChanged()
+        presenter.userCPFChanged("")
 
-        Mockito.verify(view).onCPFInvalid(R.string.error_cpf_invalid)
+        Mockito.verify(view).onCPFInvalid()
     }
 
     @Test
     fun `should call email invalid when the changed email is invalid` (){
-        Mockito.`when`(view.getUserEmail()).thenReturn("")
-        presenter.userEmailChanged()
+        presenter.userEmailChanged("")
 
-        Mockito.verify(view).onEmailInvalid(R.string.error_email_invalid)
+        Mockito.verify(view).onEmailInvalid()
     }
 }
