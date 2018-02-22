@@ -12,8 +12,6 @@ class EmailValidator {
         val emailPattern = Regex ("^[A-Z,a-z][A-Z,a-z,0-9,.,\\-,_]+[A-Z,a-z,0-9]" +
                 "@[A-Z,a-z,0-9]+\\.[A-z,a-z,.]+[A-Z,a-z,0-9]")
 
-        if (!email.matches(emailPattern)) return false
-
-        return true
+        return email.matches(emailPattern)
     }
 }
