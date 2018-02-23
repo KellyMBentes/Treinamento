@@ -6,20 +6,6 @@ import android.support.v7.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), SubscriptionFormView {
-    override fun showValidationDialog() {
-        val simpleAlert = AlertDialog.Builder(this@MainActivity).create()
-        simpleAlert.setTitle("Alert")
-
-        simpleAlert.setButton(AlertDialog.BUTTON_POSITIVE,
-                getString(android.R.string.ok), {
-            dialogInterface, i ->
-            edtCpf.text.clear()
-            edtName.text.clear()
-            edtEmail.text.clear()
-        })
-
-        simpleAlert.show()
-    }
 
     private lateinit var subscriptionFormPresenter: SubscriptionFormPresenter
 
@@ -54,5 +40,22 @@ class MainActivity : AppCompatActivity(), SubscriptionFormView {
     override fun onReadyToValidate() {
         btnConfirm.isClickable = true
         btnConfirm.setTextColor(resources.getColor(android.R.color.black))
+    }
+
+    override fun showValidationDialog() {
+        val simpleAlert = AlertDialog.Builder(this@MainActivity).create()
+        simpleAlert.setTitle("Alert")
+
+        simpleAlert.setButton(AlertDialog.BUTTON_POSITIVE,
+                getString(android.R.string.ok), {
+            dialogInterface, i ->
+            edtCpf.text.clear()
+            edtName.text.clear()
+            edtEmail.text.clear()
+            btnConfirm.isClickable = false
+            btnConfirm.setTextColor(resources.getColor(android.R.color.darker_gray))
+        })
+
+        simpleAlert.show()
     }
 }
