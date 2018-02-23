@@ -24,6 +24,6 @@ class SubscriptionFormPresenter(val subscriptionFormView: SubscriptionFormView, 
     }
 
     fun performValidation() {
-
+        subscriptionFormView.showValidationDialog()
     }
 }
