@@ -2,12 +2,10 @@ package com.example.kotlin.mvpexercice
 
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito
-import org.mockito.junit.MockitoJUnitRunner
+import org.mockito.Mockito.mock
 
-@RunWith(MockitoJUnitRunner::class)
 class SubscriptionFormPresenterUnitTest {
 
     @Mock
@@ -17,6 +15,7 @@ class SubscriptionFormPresenterUnitTest {
     @Before
     fun `before each test` (){
         subscriptionFormPresenter = SubscriptionFormPresenter(subscriptionFormView, NameValidator(), CPFValidator(), EmailValidator())
+        subscriptionFormView = mock(SubscriptionFormView::class.java)
     }
 
     @Test
