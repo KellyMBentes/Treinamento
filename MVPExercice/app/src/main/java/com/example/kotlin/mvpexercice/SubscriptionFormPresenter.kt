@@ -1,7 +1,7 @@
 package com.example.kotlin.mvpexercice
 
-class SubscriptionFormPresenter(val subscriptionFormView: SubscriptionFormView, val nameValidator: NameValidator,
-                                val cpfValidator: CPFValidator, val emailValidator: EmailValidator) {
+class SubscriptionFormPresenter(private val subscriptionFormView: SubscriptionFormView, private val nameValidator: NameValidator,
+                                private val cpfValidator: CPFValidator, private val emailValidator: EmailValidator) {
 
     fun userNameChanged(name : String) {
         if (!nameValidator.validate(name)) {

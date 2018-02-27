@@ -1,9 +1,9 @@
 package com.example.kotlin.mvpexercice
 
-import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.verify
 import org.junit.Before
 import org.junit.Test
-import com.nhaarman.mockitokotlin2.verify
 
 class SubscriptionFormPresenterUnitTest {
 
