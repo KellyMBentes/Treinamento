@@ -38,8 +38,13 @@ class MainActivity : AppCompatActivity(), SubscriptionFormView {
     }
 
     override fun onReadyToValidate() {
-        btnConfirm.isClickable = true
-        btnConfirm.setTextColor(resources.getColor(android.R.color.black))
+        if (!edtName.text.toString().isEmpty() &&
+                !edtEmail.text.toString().isEmpty() &&
+                !edtCpf.text.toString().isEmpty()) {
+
+            btnConfirm.isClickable = true
+            btnConfirm.setTextColor(resources.getColor(android.R.color.black))
+        }
     }
 
     override fun notReadyToValidate() {

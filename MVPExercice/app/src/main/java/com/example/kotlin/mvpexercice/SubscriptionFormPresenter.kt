@@ -7,6 +7,8 @@ class SubscriptionFormPresenter(private val subscriptionFormView: SubscriptionFo
         if (!nameValidator.validate(name)) {
             subscriptionFormView.onNameInvalid()
             subscriptionFormView.notReadyToValidate()
+        } else {
+            subscriptionFormView.onReadyToValidate()
         }
     }
 
@@ -23,6 +25,8 @@ class SubscriptionFormPresenter(private val subscriptionFormView: SubscriptionFo
         if (!emailValidator.validate(email)) {
             subscriptionFormView.onEmailInvalid()
             subscriptionFormView.notReadyToValidate()
+        } else {
+            subscriptionFormView.onReadyToValidate()
         }
     }
 
