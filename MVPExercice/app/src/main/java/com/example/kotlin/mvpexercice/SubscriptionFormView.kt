@@ -6,5 +6,6 @@ interface SubscriptionFormView {
     fun onCPFInvalid ()
     fun onEmailInvalid()
     fun onReadyToValidate()
+    fun notReadyToValidate()
     fun showValidationDialog()
 }

@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity(), SubscriptionFormView {
         btnConfirm.setTextColor(resources.getColor(android.R.color.black))
     }
 
+    override fun notReadyToValidate() {
+        btnConfirm.isClickable = false
+        btnConfirm.setTextColor(resources.getColor(android.R.color.darker_gray))
+    }
+
     override fun showValidationDialog() {
         val simpleAlert = AlertDialog.Builder(this@MainActivity).create()
         simpleAlert.setTitle("Alert")
@@ -52,8 +57,6 @@ class MainActivity : AppCompatActivity(), SubscriptionFormView {
             edtCpf.text.clear()
             edtName.text.clear()
             edtEmail.text.clear()
-            btnConfirm.isClickable = false
-            btnConfirm.setTextColor(resources.getColor(android.R.color.darker_gray))
         })
 
         simpleAlert.show()
