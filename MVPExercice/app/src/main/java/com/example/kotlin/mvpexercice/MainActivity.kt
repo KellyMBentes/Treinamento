@@ -54,14 +54,21 @@ class MainActivity : AppCompatActivity(), SubscriptionFormView {
 
     override fun showValidationDialog() {
         val simpleAlert = AlertDialog.Builder(this@MainActivity).create()
-        simpleAlert.setTitle("Alert")
+        simpleAlert.setTitle(getString(R.string.message_subscription_sucess))
 
         simpleAlert.setButton(AlertDialog.BUTTON_POSITIVE,
                 getString(android.R.string.ok), {
             dialogInterface, i ->
             edtCpf.text.clear()
+            edtCpf.error = null
+
             edtName.text.clear()
+            edtName.error = null
+
             edtEmail.text.clear()
+            edtEmail.error = null
+
+            edtName.requestFocus()
         })
 
         simpleAlert.show()
