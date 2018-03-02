@@ -3,6 +3,7 @@ package com.example.kotlin.mvpexercice
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.widget.EditText
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), SubscriptionFormView {
@@ -59,18 +60,19 @@ class MainActivity : AppCompatActivity(), SubscriptionFormView {
         simpleAlert.setButton(AlertDialog.BUTTON_POSITIVE,
                 getString(android.R.string.ok), {
             dialogInterface, i ->
-            edtCpf.text.clear()
-            edtCpf.error = null
 
-            edtName.text.clear()
-            edtName.error = null
-
-            edtEmail.text.clear()
-            edtEmail.error = null
+            edtCpf.reset()
+            edtName.reset()
+            edtEmail.reset()
 
             edtName.requestFocus()
         })
 
         simpleAlert.show()
+    }
+
+    private fun EditText.reset ()  {
+        text.clear()
+        error = null
     }
 }
