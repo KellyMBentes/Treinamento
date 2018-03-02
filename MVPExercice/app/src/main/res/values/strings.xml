@@ -5,4 +5,13 @@
     <string name="cpf_hint">Type your CPF</string>
     <string name="confirm_button_label">Confirm</string>
 
+    <!--Error Messages-->
+    <string name="error_name_invalid">This name format is invalid</string>
+    <string name="error_cpf_invalid">This CPF format is invalid</string>
+    <string name="error_email_invalid">This email format is invalid</string>
+
+    <!--Dialog Messages-->
+    <string name="message_subscription_sucess">Your registration was successful made</string>
+
+
 </resources>
